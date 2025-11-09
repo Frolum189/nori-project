@@ -6,7 +6,7 @@
 ![Логотип nori-project](https://github.com/user-attachments/assets/2de5b876-9118-41a4-9e1a-ba42a31a4911)
 
 ## Демонстрация
-Демонстрацию в реальном времени можно посмотреть здесь: *ссылка потом*
+Демонстрацию в реальном времени можно посмотреть здесь: (https://www.figma.com/design/N2E141xxJkCKOUH418woqh/Untitled?m=auto&t=NAkuXgXJhwnSEZeU-6)
 
 ## План (может меняться)
 - Ленивая загрузка
