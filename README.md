@@ -29,6 +29,7 @@ https://docs.google.com/document/d/1Rv5CX8gk0rNucJSTuxE-uf5U6yPrgpMlzyNHbvHxUn8/
 - Swiper
 - REST API
 
+## Структура проекта (Модульная архитектура)
 ```
 src/
 ├─ modules/
@@ -77,5 +78,4 @@ src/
 │           
 │
 └─ public/                        // Статические файлы: карты, иконки, изображения
-
 ```
