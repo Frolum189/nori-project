@@ -1,7 +1,7 @@
-import * as ShopsApi from "./src/modules/shops/pages/services/shopsApi.js";
-import * as ProductsApi from "./src/modules/products/services/productApi.js";
-import * as UsersApi from "./src/modules/user/services/usersApi.js";
-import * as CartApi from "./src/modules/cart/services/cartApi.js";
+import * as ShopsApi from "./src/modules/shops/pages/rest/shopsApi.js";
+import * as ProductsApi from "./src/modules/products/rest/productApi.js";
+import * as UsersApi from "./src/modules/user/rest/usersApi.js";
+import * as CartApi from "./src/modules/cart/rest/cartApi.js";
 
 async function testAll() {
   try {
