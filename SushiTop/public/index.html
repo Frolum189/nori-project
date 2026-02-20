@@ -43,6 +43,74 @@
     <div class="swiper-button-next"></div>
     <div class="swiper-pagination"></div>
   </section>
+
+  <div class="main-layout">
+      <aside class="sidebar">
+          <ul class="category-list" id="categoryList">
+              <li class="category-item active" data-category="boxes">СУШИ БОКСЫ</li>
+              <li class="category-item" data-category="rolls-phila">ФИЛАДЕЛЬНЫЕ РОЛЛЫ</li>
+              <li class="category-item" data-category="rolls-hot">ГОРЯЧИЕ РОЛЛЫ</li>
+              <li class="category-item" data-category="breakfast">ЗАВТРАКИ</li>
+              <li class="category-item" data-category="rolls-cali">РОЛЛЫ КАЛИФОРНИЯ</li>
+              <li class="category-item" data-category="no-rice">СУШИ БЕЗ РИСА</li>
+              <li class="category-item" data-category="sashimi">СУШИ ТА САШИМИ</li>
+              <li class="category-item" data-category="signature">ФИРМЕННЫЕ РОЛЛЫ</li>
+              <li class="category-item" data-category="wok">WOK BOX</li>
+              <li class="category-item" data-category="gyoza">ЯПОНСКИЕ ПЕЛЬМЕНИ ГЁДЗЕ</li>
+              <li class="category-item" data-category="maki">РОЛЛЫ МАКИ</li>
+              <li class="category-item" data-category="snacks">ЯПОНСКИЕ СНЕКИ</li>
+              <li class="category-item" data-category="lunch">БИЗНЕС-ЛАНЧИ</li>
+              <li class="category-item" data-category="poke">БОУЛЫ-ПОКЕ</li>
+              <li class="category-item" data-category="salads">САЛАТЫ</li>
+              <li class="category-item" data-category="soups">СУПЫ</li>
+              <li class="category-item" data-category="mochi">ДЕСЕРТЫ МОТИ</li>
+              <li class="category-item" data-category="drinks">НАПИТКИ</li>
+              <li class="category-item" data-category="ingredients">ИНГРЕДИЕНТЫ ДЛЯ СУШИ</li>
+              <li class="category-item" data-category="extra">ДОПОЛНЕНИЯ</li>
+              <li class="category-item" data-category="sale">РАСПРОДАЖА</li>
+          </ul>
+      </aside>
+
+          <main class="content-area">
+          <header class="content-header">
+              <h1 id="categoryTitle">СУШИ БОКСЫ</h1>
+              <div class="header-tools">
+                  <button class="tool-btn">⚙️</button>
+              </div>
+          </header>
+
+          <div class="products-grid" id="productsGrid">
+              <!-- Тут товарчики -->
+          </div>
+      </main>
+
+      <!-- Корзиночка -->
+      <aside class="cart-panel">
+          <div class="cart-title">
+              <span>🛒</span>
+              <span>КОРЗИНА</span>
+              <span style="margin-left: auto; font-size: 12px; color: #666;" id="totalCountTop">0 шт</span>
+          </div>
+
+          <div class="cart-items" id="cartItems">
+              <!-- Товарчики в корзинке -->
+              <div class="cart" style="color: #444; text-align: center; ">Корзина пуста</div>
+          </div>
+
+          <div class="cart-summary">
+              <div class="summary-row">
+                  <span id="itemsInCartText">В корзине 0 товара</span>
+                  <span style="color: #ff6600; cursor: pointer;">Показать все</span>
+              </div>
+              <a href="#" style="font-size: 12px; color: #ff6600; margin-bottom: 15px;">Товары в комплекте</a>
+              <div class="total-row">
+                  <span>Вместе:</span>
+                  <span id="totalPrice">0 грн</span>
+              </div>
+              <button class="checkout-btn">Оформить заказ</button>
+          </div>
+      </aside>
+  </div>
   <footer>
       <div class="footer-container">
           <div class="footer-left">
@@ -117,6 +185,7 @@
   </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="index.js"></script>
 
   <script>
   const swiper = new Swiper('.swiper', { // спросить у Андрея на счет js Swiper и React Swiper 

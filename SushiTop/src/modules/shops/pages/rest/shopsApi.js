@@ -1,56 +1,23 @@
+import { fetchRequest } from '../../../../core/fetchRequest.js';
+
 const SHOPS_URL = "https://jsonplaceholder.typicode.com/todos";
 
 export async function getShops() {
-  const result = await fetch(SHOPS_URL);
-  if (!result.ok) {
-    throw new Error("Ошибка");
-  }
-
-  return result.json();
+  return fetchRequest(SHOPS_URL, 'GET', null, 'Ошибка получения списка магазинов');
 }
 
 export async function getShopById(id) {
-  const result = await fetch(`${SHOPS_URL}/${id}`);
-  if (!result.ok) {
-    throw new Error("Магазин не найден");
-  }
-
-  return result.json();
+  return fetchRequest(`${SHOPS_URL}/${id}`, 'GET', null, 'Магазин не найден');
 }
 
 export async function createShop(data) {
-  const result = await fetch(SHOPS_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  if (!result.ok) {
-    throw new Error("Создать не удалось");
-  }
-
-  return result.json();
+  return fetchRequest(SHOPS_URL, 'POST', data, 'Создать не удалось');
 }
 
 export async function updateShop(id, data) {
-  const result = await fetch(`${SHOPS_URL}/${id}`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  if (!result.ok) {
-    throw new Error("Создать не удалось");
-  }
-
-  return result.json();
+  return fetchRequest(`${SHOPS_URL}/${id}`, 'PATCH', data, 'Обновление не удалось');
 }
 
 export async function deleteShop(id) {
-  const result = await fetch(`${SHOPS_URL}/${id}`, {
-    method: "DELETE",
-  });
-  if (!result.ok) {
-    throw new Error("Создать не удалось");
-  }
-
-  return result.json();
+  return fetchRequest(`${SHOPS_URL}/${id}`, 'DELETE', null, 'Удаление не удалось');
 }

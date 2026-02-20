@@ -1,5 +1,6 @@
 .hero-slider {
   height: 85vh; 
+  width: 100%;
 }
 
 .hero-slider .swiper {

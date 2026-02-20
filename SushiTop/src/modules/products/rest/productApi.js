@@ -1,33 +1,23 @@
+import { fetchRequest } from '../../../core/fetchRequest.js';
+
 const PRODUCTS_URL = "https://jsonplaceholder.typicode.com/posts";
 
 export async function getProducts() {
-  const result = await fetch(PRODUCTS_URL);
-  if (!result.ok) {
-    throw new Error("Не удалось загрузить товары");
-  }
-
-  return result.json();
+  return fetchRequest(PRODUCTS_URL, 'GET', null, "Не удалось загрузить товары");
 }
 
 export async function getProductById(id) {
-  const result = await fetch(`${PRODUCTS_URL}/${id}`);
-  if (!result.ok) {
-    throw new Error("Продукт не найден");
-  }
-
-  return result.json();
+  return fetchRequest(`${PRODUCTS_URL}/${id}`, 'GET', null, "Продукт не найден");
 }
 
 export async function createProduct(data) {
-  const result = await fetch(PRODUCTS_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  
-  if (!result.ok) {
-    throw new Error("Создание продукта не удалось");
-  }
+  return fetchRequest(PRODUCTS_URL, 'POST', data, "Создание продукта не удалось");
+}
 
-  return result.json();
+export async function updateProduct(id, data) {
+  return fetchRequest(`${PRODUCTS_URL}/${id}`, 'PUT', data, "Обновление продукта не удалось");
+}
+
+export async function deleteProduct(id) {
+  return fetchRequest(null, 'DELETE', `${PRODUCTS_URL}/${id}`, "Удаление продукта не удалось");
 }

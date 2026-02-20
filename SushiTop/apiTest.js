@@ -5,25 +5,55 @@ import * as CartApi from "./src/modules/cart/rest/cartApi.js";
 
 async function testAll() {
   try {
-    console.log("Магазины");
-    console.log(await ShopsApi.getShops());
-    console.log(await ShopsApi.getShopById(1));
-    console.log(await ShopsApi.createShop({ title: "Новый магазин", completed: false }));
-    console.log(await ShopsApi.updateShop(1, { title: "Обновлённый магазин" }));
-    console.log(await ShopsApi.deleteShop(1));
+    console.log("=== МАГАЗИНЫ ===");
+    const shops = await ShopsApi.getShops();
+    console.log(shops);
 
-    console.log("Продукты");
-    console.log(await ProductsApi.getProducts());
-    console.log(await ProductsApi.getProductById(1));
-    console.log(await ProductsApi.createProduct({ title: "Новый продукт", body: "Описание", userId: 1 }));
+    const shop = await ShopsApi.getShopById(1);
+    console.log("Магазин с ID = 1:", shop);
 
-    console.log("Юз");
-    console.log(await UsersApi.getUser(1));
-    console.log(await UsersApi.createUser({ name: "Кирилл", username: "Kirusha", email: "kirill@mail.com" }));
+    const newShop = await ShopsApi.createShop({ title: "Новый магазин", completed: false });
+    console.log("Создан магазин:", newShop);
 
-    console.log("Корзина");
-    console.log(await CartApi.addToCart(101));
-    console.log(await CartApi.removeFromCart(1));
+    const updatedShop = await ShopsApi.updateShop(1, { title: "Обновлённый магазин" });
+    console.log("Обновлён магазин:", updatedShop);
+
+    const deletedShop = await ShopsApi.deleteShop(1);
+    console.log("Удаление магазина вернуло:", deletedShop);
+
+    console.log("\n=== ПРОДУКТЫ ===");
+    const products = await ProductsApi.getProducts();
+    console.log(products);
+
+    const product = await ProductsApi.getProductById(1);
+    console.log("Продукт с ID = 1:", product);
+
+    const newProduct = await ProductsApi.createProduct({
+      title: "Новый продукт",
+      body: "Описание продукта",
+      userId: 1
+    });
+    
+    console.log("Создан продукт:", newProduct);
+
+    console.log("\n=== ЮЗЕРЫ ===");
+    const user = await UsersApi.getUser(1);
+    console.log("Юзер с ID=1:", user);
+
+    const newUser = await UsersApi.createUser({
+      name: "Кирилл",
+      username: "Kirusha",
+      email: "kirill@mail.com"
+    });
+
+    console.log("Создан юзер:", newUser);
+
+    console.log("\n=== КОРЗИНА ===");
+    const addedToCart = await CartApi.addToCart(101);
+    console.log("Добавлено в корзину:", addedToCart);
+
+    const removedFromCart = await CartApi.removeFromCart(1);
+    console.log("Удалено из корзины:", removedFromCart);
 
   } catch (err) {
     console.error("Ошибка API:", err.message);
