@@ -8,7 +8,7 @@ const productsData = [
         oldPrice: 910,
         pieces: 44,
         weight: '1кг',
-        image: 'https://loremflickr.com/320/240/sushi,set?random=1',
+        image: 'https://picsum.photos/320/240?random=1',
         url: 'product-page.html?id=1'
     },
     {
@@ -19,7 +19,7 @@ const productsData = [
         oldPrice: 1200,
         pieces: 52,
         weight: '1.2кг',
-        image: 'https://loremflickr.com/320/240/sushi,party?random=2',
+        image: 'https://picsum.photos/320/240?random=2',
         url: 'product-page.html?id=2'
     },
     {
@@ -30,7 +30,7 @@ const productsData = [
         oldPrice: null,
         pieces: 24,
         weight: '600г',
-        image: 'https://loremflickr.com/320/240/sushi,maki?random=3',
+        image: 'https://picsum.photos/320/240?random=3',
         url: 'product-page.html?id=3'
     },
     {
@@ -41,7 +41,7 @@ const productsData = [
         oldPrice: null,
         pieces: 32,
         weight: '900г',
-        image: 'https://loremflickr.com/320/240/sushi,philadelphia?random=4',
+        image: 'https://picsum.photos/320/240?random=4',
         url: 'product-page.html?id=4'
     },
 
@@ -54,7 +54,7 @@ const productsData = [
         oldPrice: null,
         pieces: 1,
         weight: '0.75л',
-        image: 'https://loremflickr.com/320/240/water,bottle?random=7',
+        image: 'https://picsum.photos/320/240?random=7',
         url: 'product-page.html?id=7'
     },
 
@@ -67,7 +67,7 @@ const productsData = [
         oldPrice: 280,
         pieces: 8,
         weight: '260г',
-        image: 'https://loremflickr.com/320/240/sushi,salmon?random=8',
+        image: 'https://picsum.photos/320/240?random=8',
         url: 'product-page.html?id=8'
     },
     {
@@ -78,7 +78,7 @@ const productsData = [
         oldPrice: null,
         pieces: 8,
         weight: '270г',
-        image: 'https://loremflickr.com/320/240/sushi,eel?random=9',
+        image: 'https://picsum.photos/320/240?random=9',
         url: 'product-page.html?id=9'
     },
 
@@ -91,7 +91,7 @@ const productsData = [
         oldPrice: 250,
         pieces: 8,
         weight: '280г',
-        image: 'https://loremflickr.com/320/240/sushi,tempura?random=10',
+        image: 'https://picsum.photos/320/240?random=10',
         url: 'product-page.html?id=10'
     },
 
@@ -104,7 +104,7 @@ const productsData = [
         oldPrice: null,
         pieces: 8,
         weight: '240г',
-        image: 'https://loremflickr.com/320/240/sushi,california?random=12',
+        image: 'https://picsum.photos/320/240?random=12',
         url: 'product-page.html?id=12'
     },
 
@@ -117,7 +117,7 @@ const productsData = [
         oldPrice: null,
         pieces: 5,
         weight: '100г',
-        image: 'https://loremflickr.com/320/240/sashimi,salmon?random=15',
+        image: 'https://picsum.photos/320/240?random=15',
         url: 'product-page.html?id=15'
     },
 
@@ -130,7 +130,7 @@ const productsData = [
         oldPrice: null,
         pieces: 1,
         weight: '350г',
-        image: 'https://loremflickr.com/320/240/noodles,chicken?random=19',
+        image: 'https://picsum.photos/320/240?random=19',
         url: 'product-page.html?id=19'
     },
 
@@ -143,7 +143,7 @@ const productsData = [
         oldPrice: null,
         pieces: 5,
         weight: '150г',
-        image: 'https://loremflickr.com/320/240/dumplings?random=21',
+        image: 'https://picsum.photos/320/240?random=21',
         url: 'product-page.html?id=21'
     }
 ];
