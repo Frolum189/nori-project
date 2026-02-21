@@ -7,6 +7,7 @@
 
 ## Демонстрация
 Демонстрацию в реальном времени можно посмотреть здесь: (https://www.figma.com/design/N2E141xxJkCKOUH418woqh/Untitled?m=auto&t=NAkuXgXJhwnSEZeU-6)
+https://sushitop-44afc.web.app/
 
 ## Use Cases
 https://docs.google.com/document/d/1Rv5CX8gk0rNucJSTuxE-uf5U6yPrgpMlzyNHbvHxUn8/edit?usp=sharing
