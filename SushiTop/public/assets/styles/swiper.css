@@ -1,12 +1,14 @@
 .hero-slider {
-  height: 85vh; 
+  aspect-ratio: 1920 / 600;
   width: 100%;
+  position: relative;
 }
 
-.hero-slider .swiper {
-  width: 600px;
-  height: 300px;
+.swiper-pagination {
+  bottom: 20px !important; /* Поднимаем точки, чтобы они были на баннере */
+  z-index: 10;
 }
+
 
 .swiper-slide {
   height: 100%;
@@ -39,4 +41,5 @@
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }

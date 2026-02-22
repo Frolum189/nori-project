@@ -2,12 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
+    /* Добавляем фон с сердечками */
+    background-image: url('../images/valentinedaybackground.png');
+    background-color: var(--bg-color);
+    background-size: cover; /* Картинка растянется на весь экран */
+    background-attachment: scroll;
+    background-position: center;
+
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
@@ -20,7 +32,9 @@ ul {
 }
 
 .navbar {
-    background: #000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     width: 100%;
 }
 
@@ -103,7 +117,9 @@ ul {
 }
 
 footer {
-    background: #000000;
+    background: rgba(0, 0, 0, 0.1); /* Полупрозрачный черный фон */
+    backdrop-filter: blur(8px); /* Размытие сердечек под футером */
+    -webkit-backdrop-filter: blur(8px);
     color: #fff;
     padding: 40px 0 15px 0;
 }
@@ -253,7 +269,7 @@ footer {
 
 :root {
     --bg-color: #000;
-    --panel-bg: #0a0a0a;
+    --panel-bg: rgba(10, 10, 10, 0.7); /* Было #0a0a0a, стало полупрозрачным */
     --card-bg: transparent;
     --accent-color: #ff6600;
     --text-color: #fff;
@@ -262,8 +278,6 @@ footer {
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -285,6 +299,11 @@ body {
     flex-shrink: 0;
     position: sticky;
     top: 0;
+    background: rgba(10, 10, 10, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .category-list {
@@ -426,7 +445,11 @@ body {
 /* КОРЗИНА */
 .cart-panel {
     width: 300px;
-    background: var(--panel-bg);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); /* Добавляет красивое размытие фона под корзиной */
+    -webkit-backdrop-filter: blur(8px); /* Для поддержки в Safari */
     padding: 20px;
     border-radius: 8px;
     display: flex;
