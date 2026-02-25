@@ -6,13 +6,11 @@
 }
 
 body {
-    /* Добавляем фон с сердечками */
     background-image: url('../images/valentinedaybackground.png');
     background-color: var(--bg-color);
-    background-size: cover; /* Картинка растянется на весь экран */
+    background-size: cover;
     background-attachment: scroll;
     background-position: center;
-
     color: var(--text-color);
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -117,9 +115,8 @@ ul {
 }
 
 footer {
-    background: rgba(0, 0, 0, 0.1); /* Полупрозрачный черный фон */
-    backdrop-filter: blur(8px); /* Размытие сердечек под футером */
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0);
+    backdrop-filter: blur(8px);
     color: #fff;
     padding: 40px 0 15px 0;
 }
@@ -266,10 +263,9 @@ footer {
     }
 } */
 
-
 :root {
     --bg-color: #000;
-    --panel-bg: rgba(10, 10, 10, 0.7); /* Было #0a0a0a, стало полупрозрачным */
+    --panel-bg: rgba(68, 63, 63, 0.7);
     --card-bg: transparent;
     --accent-color: #ff6600;
     --text-color: #fff;
@@ -277,39 +273,23 @@ footer {
     --border-color: #222;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 .main-layout {
     display: flex;
-    flex: 1;
-    padding: 20px;
-    gap: 20px;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 40px 20px;
 }
 
-/* КАТЕГОРИИ */
 .sidebar {
     width: 250px;
     flex-shrink: 0;
     position: sticky;
-    top: 0;
+    top: 20px;
+    max-height: calc(100vh - 40px); 
     background: rgba(10, 10, 10, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.category-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 10px;
 }
 
 .category-item {
@@ -325,9 +305,9 @@ body {
     color: var(--text-color);
 }
 
-/* ЦЕНТРАЛЬНАЯ ЧАСТЬ */
 .content-area {
     flex: 1;
+    min-width: 0;
 }
 
 .content-header {
@@ -369,11 +349,10 @@ body {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
-/* КАРТОЧКА ТОВАРА */
 .product-card {
     text-align: center;
     transition: transform 0.2s;
@@ -442,21 +421,19 @@ body {
     opacity: 1;
 }
 
-/* КОРЗИНА */
 .cart-panel {
-    width: 300px;
+    width: 320px;
+    flex-shrink: 0;
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px); /* Добавляет красивое размытие фона под корзиной */
-    -webkit-backdrop-filter: blur(8px); /* Для поддержки в Safari */
     padding: 20px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-self: flex-start;
     position: sticky;
-    top: 0px;
+    top: 0;
 }
 
 .cart-title {
@@ -475,7 +452,7 @@ body {
 }
 
 .cart {
-    height: 50vh;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -489,11 +466,6 @@ body {
     align-items: center;
     margin-bottom: 15px;
     font-size: 14px;
-}
-
-.cart-item-info {
-    display: flex;
-    gap: 10px;
 }
 
 .cart-summary {
