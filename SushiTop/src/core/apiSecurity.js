@@ -1,4 +1,4 @@
-function validateUrl(url) { // пункт 1
+function validateUrl(url) {
     if (typeof url !== 'string' || url.trim() === '') {
         throw new Error('URL must be a non-empty string')
     }
