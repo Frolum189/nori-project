@@ -149,6 +149,11 @@ const productsData = [
 ];
 
 let cart = [];
+const savedCart = localStorage.getItem("item_cart");
+
+if (savedCart) {
+    cart = JSON.parse(savedCart);
+}
 
 async function renderProducts(category = 'boxes') {
     const grid = document.getElementById('productsGrid');
@@ -169,15 +174,24 @@ async function renderProducts(category = 'boxes') {
             const card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML = `
-                    <img src="${p.image}" alt="${p.name}">
-                    <div class="product-name">${p.name}</div>
-                    ${p.oldPrice ? `<span class="old-price">${p.oldPrice} грн</span>` : ''}
-                    <div class="product-info-row">
-                        <span class="current-price">${p.price} грн</span>
-                        <span class="product-meta">${p.pieces} шт | ${p.weight}</span>
-                    </div>
-                    <button class="add-btn" onclick="addToCart(${p.id})">В корзину</button>
-                `;
+                <img src="${p.image}" alt="${p.name}">
+
+                <div class="product-name">${p.name}</div>
+
+                ${p.oldPrice
+                        ? `<span class="old-price">${p.oldPrice} грн</span>`
+                        : `<span class="old-price empty"></span>`
+                        }
+
+                <div class="product-info-row">
+                    <span class="current-price">${p.price} грн</span>
+                    <span class="product-meta">${p.pieces} шт | ${p.weight}</span>
+                </div>
+
+                <button class="add-btn" onclick="addToCart(${p.id})">
+                    В корзину
+                </button>
+            `;
             grid.appendChild(card);
         });
     } catch (error) {
@@ -216,7 +230,6 @@ function renderCart() {
     const totalPriceEl = document.getElementById('totalPrice');
 
     container.innerHTML = '';
-
     let totalCount = 0;
     let totalPrice = 0;
 
@@ -227,13 +240,14 @@ function renderCart() {
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML = `
-                <div class="cart-item-info">
-                    <span>${item.count}</span>
-                    <span>${item.name}</span>
-                </div>
-                <div style="border-bottom: 1px dotted #333; flex: 1; margin: 0 10px;"></div>
-                <span>${item.price * item.count} грн</span>
-            `;
+            <div class="cart-item-info" data-id="${item.id}">
+                <span class="count">${item.count}</span>
+                <span class="name">${item.name}</span>
+                <button class="remove-btn">&times;</button>
+            </div>
+            <div style="border-bottom: 1px dotted #333; flex: 1; margin: 0 10px;"></div>
+            <span>${item.price * item.count} грн</span>
+        `;
         container.appendChild(div);
     });
 
@@ -244,9 +258,12 @@ function renderCart() {
     totalCountTop.innerText = `${totalCount} шт`;
     itemsInCartText.innerText = `В корзине ${cart.length} товара`;
     totalPriceEl.innerText = `${totalPrice} грн`;
+
+    localStorage.setItem("item_cart", JSON.stringify(cart));
 }
 
-// Инициализация
+renderCart();
+
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
 
@@ -260,3 +277,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.getElementById('cartItems').addEventListener('click', e => {
+    if (e.target.classList.contains('remove-btn')) {
+        const id = +e.target.closest('.cart-item-info').dataset.id;
+        removeFromCart(id);
+    }
+});
+
+function removeFromCart(id) {
+    const idx = cart.findIndex(i => i.id === id);
+    if (idx !== -1) {
+        cart.splice(idx, 1);
+        renderCart();
+    }
+}

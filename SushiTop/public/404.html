@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Страница не найдена | SushiTop</title>
+  <link rel="stylesheet" href="../src/assets/styles/global.css">
+  <link rel="stylesheet" href="../src/assets/styles/nav.css">
+  <link rel="stylesheet" href="../src/assets/styles/404.css">
+  <link rel="stylesheet" href="../src/assets/styles/mobile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+
+        <div class="nav-left">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/nav/logo.jpg" alt="HORECA Logo"></a>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-box">
+                <input type="text" placeholder="" />
+                <button type="button" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <a href="#" class="lang">RU</a>
+
+            <div class="desktop-icons">
+                <a href="#" class="nav-icon"><i class="fa-solid fa-shop"></i></a>
+                <a href="#" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#" class="nav-icon"><i class="fa-solid fa-bookmark"></i></a>
+                <a href="#" class="nav-icon"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </div>
+
+        <div class="mobile-icons">
+            <a href="#" class="nav-icon"><i class="fa-solid fa-shop"></i></a>
+            <a href="#" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#" class="nav-icon"><i class="fa-solid fa-bookmark"></i></a>
+            <a href="#" class="nav-icon"><i class="fa-solid fa-user"></i></a>
+        </div>
+
+    </div>
+</nav>
+
+  <div class="content">
+    <div class="error">
+      <h1>404</h1>
+      <img src="https://img.icons8.com/?size=100&id=3BPokxgfhJp7&format=png&color=000000" alt="">
+      <h2>Ой, страница не найдена!</h2>
+      <p>Похоже, эта страница исчезла как недоеденный суши</p>
+      <p class="error-p">Страница, которую вы ищете, не существует или была перемещена. Давайте вернём вас на главное меню!</p>
+      <div class="error-actions">
+        <a href="index.html">Вернуться на главную</a>
+        <button onclick="history.back()">Назад</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module"> import { fetchRequestSecure } from '../src/core/apiSecurity.js';</script>
+</body>
+</html>

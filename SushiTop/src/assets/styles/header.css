@@ -1,0 +1,67 @@
+.content-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+    margin: 10px 0 20px 0px;
+}
+
+.content-header h1 {
+    font-size: 28px;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.header-tools {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    background: #1c1c1c;
+    border-radius: 12px;
+    gap: 2px;
+}
+
+.tool-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: white;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.fa-solid {
+    font-size: 25px;
+    color: #cbcbcb;
+}
+
+.tool-btn img {
+    width: 35px;
+}
+
+.tool-btn:hover {
+    opacity: 1;
+}
+
+.tool-btn + .tool-btn {
+    border-left: 1px solid #2f2f2f;
+}
+
+.tool-btn:hover {
+    opacity: 1;
+}

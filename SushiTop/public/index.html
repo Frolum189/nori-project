@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html lang="RU">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beijing - Sushi Restaurant</title>
-  <link rel="stylesheet" href=".\assets\styles\style.css">
-  <link rel="stylesheet" href=".\assets\styles\swiper.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beijing - Sushi Restaurant</title>
+    <link rel="stylesheet" href="../src/assets/styles/global.css">
+    <link rel="stylesheet" href="../src/assets/styles/nav.css">
+    <link rel="stylesheet" href="../src/assets/styles/header.css">
+    <link rel="stylesheet" href="../src/assets/styles/layout.css">
+    <link rel="stylesheet" href="../src/assets/styles/products.css">
+    <link rel="stylesheet" href="../src/assets/styles/cart.css">
+    <link rel="stylesheet" href="../src/assets/styles/footer.css">
+    <link rel="stylesheet" href="../src/assets/styles/swiper.css">
+    <link rel="stylesheet" href="../src/assets/styles/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
-
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-left">
-        <div class="logo">
-          <img src="assets/images/nav/logo.jpg">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/images/nav/logo.jpg" alt="HORECA Logo"></a>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="" />
+                    <button type="button" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <a href="#" class="lang">RU</a>
+
+                <div class="desktop-icons">
+                    <a href="#" class="nav-icon"><i class="fa-solid fa-shop"></i></a>
+                    <a href="#" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" class="nav-icon"><i class="fa-solid fa-bookmark"></i></a>
+                    <a href="#" class="nav-icon"><i class="fa-solid fa-user"></i></a>
+                </div>
+            </div>
+
+            <div class="mobile-icons">
+                <a href="#" class="nav-icon"><i class="fa-solid fa-shop"></i></a>
+                <a href="#" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#" class="nav-icon"><i class="fa-solid fa-bookmark"></i></a>
+                <a href="#" class="nav-icon"><i class="fa-solid fa-user"></i></a>
+            </div>
+
         </div>
-      </div>
-      <div class="nav-right">
-        <div class="search-box">
-          <input type="text" placeholder="" />
-          <div class="search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-        </div>
-        <a href="#" class="lang">RU</a>
-        <a href="#" class="nav-icon"><i class="fa-solid fa-shop"></i></a>
-        <a href="#" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="#" class="nav-icon"><i class="fa-solid fa-bookmark"></i></a>
-        <a href="#" class="nav-icon"><i class="fa-solid fa-user"></i></a>
-      </div>
-    </div>
-  </nav>
+    </nav>
+
   <section class="hero-slider swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><a href="#"style="background-image: url('assets/images/slider/1.png');" class="slide-link"></a></div>
-      <div class="swiper-slide"><a href="#"style="background-image: url('assets/images/slider/2.png');" class="slide-link"></a></div>
-      <div class="swiper-slide"><a href="#"style="background-image: url('assets/images/slider/3.png');" class="slide-link"></a></div>
-      <div class="swiper-slide"><a href="#"style="background-image: url('assets/images/slider/4.png');" class="slide-link"></a></div>
+      <!-- imgbb.com хостинг изображений-->
+      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/Zp9NP9dG/1.png');" class="slide-link"></a></div>
+      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/B2HhsXRf/2.png');" class="slide-link"></a></div>
+      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/bjLXXNhq/3.png');" class="slide-link"></a></div>
+      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/ks53hHG7/4.png');" class="slide-link"></a></div>
     </div>
 
     <div class="swiper-button-prev"></div>
@@ -73,13 +94,16 @@
           </ul>
       </aside>
 
-          <main class="content-area">
+        <main class="content-area">
           <header class="content-header">
               <h1 id="categoryTitle">СУШИ БОКСЫ</h1>
               <div class="header-tools">
-                  <button class="tool-btn">⚙️</button>
+                  <button class="tool-btn"><i class="fa-solid fa-filter"></i></button>
+                  <button class="tool-btn"><img src="https://img.icons8.com/?size=100&id=i5awsrw7V2Qr&format=png&color=ffffff" alt=""></button>
               </div>
           </header>
+
+          <div class="content-divider"></div>
 
           <div class="products-grid" id="productsGrid">
               <!-- Тут товарчики -->
@@ -89,9 +113,9 @@
       <!-- Корзиночка -->
       <aside class="cart-panel">
           <div class="cart-title">
-              <span>🛒</span>
+              <img src="https://img.icons8.com/?size=100&id=59997&format=png&color=ffffff" alt="">
               <span>КОРЗИНА</span>
-              <span style="margin-left: auto; font-size: 12px; color: #666;" id="totalCountTop">0 шт</span>
+              <span style="margin-left: auto; font-size: 16px;" id="totalCountTop">0 шт</span>
           </div>
 
           <div class="cart-items" id="cartItems">
@@ -190,26 +214,29 @@
   <script src="index.js"></script>
 
   <script>
-  const swiper = new Swiper('.swiper', { // спросить у Андрея на счет js Swiper и React Swiper 
-    // с терминала (Тут пока что код оставить)
+    const swiper = new Swiper('.swiper', {
     loop: true,
+    
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
 
     keyboard: {
-      enabled: true,
-      onlyInViewport: true,
+        enabled: true,
+        onlyInViewport: true,
     },
 
     pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
+        el: '.swiper-pagination',
+        clickable: true,
     },
 
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
-  });
+    });
   </script>
-
 </body>
 </html>

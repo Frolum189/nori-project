@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+    background-image: url('https://i.ibb.co/ccc1Rg6M/valentinedaybackground.png');
+    background-color: var(--bg-color);
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center;
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+:root {
+    --bg-color: #000;
+    --panel-bg: rgba(68, 63, 63, 0.7);
+    --card-bg: transparent;
+    --accent-color: #ff6600;
+    --text-color: #fff;
+    --secondary-text: #888;
+    --border-color: #222;
+}
+
+/* slider basics */
+.hero-slider {
+    width: 100%;
+    height: 400px;
+}
+.hero-slider .slide-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* responsive slider heights */
+@media (max-width: 1024px) {
+    .hero-slider { height: 300px; }
+}
+@media (max-width: 768px) {
+    .hero-slider { height: 250px; }
+}
+@media (max-width: 480px) {
+    .hero-slider { height: 200px; }
+}

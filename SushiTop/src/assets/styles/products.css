@@ -1,0 +1,88 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.old-price {
+    min-height: 18px;
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.old-price.hidden {
+    visibility: hidden;
+}
+
+.product-info-row {
+    display: flex;
+    align-items: center;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.product-name {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.product-info-row {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.current-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-meta {
+    font-size: 12px;
+    color: #666;
+    border-left: 1px solid #333;
+    padding-left: 10px;
+}
+
+.add-btn {
+    margin-top: 15px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .add-btn {
+    opacity: 1;
+}

@@ -1,0 +1,113 @@
+.content {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content::before {
+    content: '';
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.error {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+    animation: slideDown 0.6s ease-out;
+}
+
+.error h1 {
+    font-size: 120px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff6600, #ff9d47);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 10px 30px rgba(255,102,0,0.3);
+}
+
+.error img {
+    font-size: 80px;
+    color: #ff6600;
+    margin: 20px 0;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error h2 {
+    font-size: 32px;
+    color: #fff;
+    margin: 20px 0 10px;
+    font-weight: 700;
+}
+
+.error p {
+    font-size: 16px;
+    color: #94a3b8;
+    margin: 0 0 15px;
+    line-height: 1.6;
+}
+
+.error-p {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.error-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.error-actions a,
+.error-actions button {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.error-actions a {
+    background: #e64a19;
+    color: white;
+}
+
+.error-actions a:hover {
+    transform: translateY(-2px);
+}
+
+.error-actions button {
+    background: rgba(255,102,0,0.15);
+    color: #ff9d47;
+    border: 2px solid #ff9d47;
+}
+
+.error-actions button:hover {
+    background: rgba(255,102,0,0.25);
+    transform: translateY(-2px);
+}
