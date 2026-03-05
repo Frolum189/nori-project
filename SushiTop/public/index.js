@@ -179,9 +179,9 @@ async function renderProducts(category = 'boxes') {
                 <div class="product-name">${p.name}</div>
 
                 ${p.oldPrice
-                        ? `<span class="old-price">${p.oldPrice} грн</span>`
-                        : `<span class="old-price empty"></span>`
-                        }
+                    ? `<span class="old-price">${p.oldPrice} грн</span>`
+                    : `<span class="old-price empty"></span>`
+                }
 
                 <div class="product-info-row">
                     <span class="current-price">${p.price} грн</span>
@@ -213,21 +213,41 @@ async function addToCart(id) {
         if (existing) {
             existing.count++;
         } else {
-            cart.push({...product, count: 1});
+            cart.push({ ...product, count: 1 });
         }
 
         renderCart();
         console.log(`[API] Товар ${product.name} успешно добавлен.`);
+
+        if (window.innerWidth <= 768) {
+            showNotificationToast();
+        }
     } catch (error) {
         alert("Не удалось добавить товар в корзину");
     }
 }
 
+let toastTimeout;
+function showNotificationToast() {
+    const toast = document.getElementById('notificationToast');
+    if (!toast) return;
+
+    clearTimeout(toastTimeout);
+    toast.classList.remove('show');
+
+    setTimeout(() => {
+        toast.classList.add('show');
+
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }, 50);
+}
+
 function renderCart() {
     const container = document.getElementById('cartItems');
     const totalCountTop = document.getElementById('totalCountTop');
-    const itemsInCartText = document.getElementById('itemsInCartText');
-    const totalPriceEl = document.getElementById('totalPrice');
+    const totalPriceTop = document.getElementById('totalPriceTop');
 
     container.innerHTML = '';
     let totalCount = 0;
@@ -240,26 +260,49 @@ function renderCart() {
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML = `
-            <div class="cart-item-info" data-id="${item.id}">
-                <span class="count">${item.count}</span>
-                <span class="name">${item.name}</span>
-                <button class="remove-btn">&times;</button>
+            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+            <div class="cart-item-info">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-dots"></div>
+                <div class="cart-item-price">${item.price * item.count} грн</div>
             </div>
-            <div style="border-bottom: 1px dotted #333; flex: 1; margin: 0 10px;"></div>
-            <span>${item.price * item.count} грн</span>
+            <div class="cart-item-actions" data-id="${item.id}">
+                <button class="action-btn minus-btn"><i class="fa-solid fa-minus"></i></button>
+                <span class="action-qty">${item.count}</span>
+                <button class="action-btn plus-btn"><i class="fa-solid fa-plus"></i></button>
+                <button class="action-btn remove-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
         `;
         container.appendChild(div);
     });
 
     if (cart.length === 0) {
-        container.innerHTML = '<div style="color: #444; text-align: center; margin-top: 20px;">Корзина пуста</div>';
+        container.innerHTML = '<div style="color: #666; text-align: center; padding: 30px 0;">Корзина пуста</div>';
     }
 
-    totalCountTop.innerText = `${totalCount} шт`;
-    itemsInCartText.innerText = `В корзине ${cart.length} товара`;
-    totalPriceEl.innerText = `${totalPrice} грн`;
+    if (totalCountTop) totalCountTop.innerText = `${totalCount} шт`;
+    if (totalPriceTop) totalPriceTop.innerText = `${totalPrice} грн`;
+
+    const desktopCartCount = document.getElementById('desktopCartCount');
+    if (desktopCartCount) desktopCartCount.innerText = `${totalCount} шт`;
+
+    const itemsInCartText = document.getElementById('itemsInCartText');
+    if (itemsInCartText) itemsInCartText.innerText = `В корзине ${totalCount} товара`;
+
+    const desktopTotalPrice = document.getElementById('desktopTotalPrice');
+    if (desktopTotalPrice) desktopTotalPrice.innerText = `${totalPrice} грн`;
 
     localStorage.setItem("item_cart", JSON.stringify(cart));
+
+    const cartBadge = document.getElementById('cartBadge');
+    if (cartBadge) {
+        if (totalCount > 0) {
+            cartBadge.textContent = totalCount;
+            cartBadge.style.display = 'flex';
+        } else {
+            cartBadge.style.display = 'none';
+        }
+    }
 }
 
 renderCart();
@@ -279,8 +322,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById('cartItems').addEventListener('click', e => {
-    if (e.target.classList.contains('remove-btn')) {
-        const id = +e.target.closest('.cart-item-info').dataset.id;
+    const actionContainer = e.target.closest('.cart-item-actions');
+    if (!actionContainer) return;
+
+    const id = +actionContainer.dataset.id;
+    const item = cart.find(i => i.id === id);
+
+    if (e.target.closest('.plus-btn')) {
+        item.count++;
+        renderCart();
+    } else if (e.target.closest('.minus-btn')) {
+        if (item.count > 1) {
+            item.count--;
+        } else {
+            removeFromCart(id);
+        }
+        renderCart();
+    } else if (e.target.closest('.remove-btn')) {
         removeFromCart(id);
     }
 });

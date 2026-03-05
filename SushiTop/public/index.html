@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="RU">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
@@ -45,7 +47,10 @@
 
             <div class="mobile-icons">
                 <a href="#" class="nav-icon"><i class="fa-solid fa-shop"></i></a>
-                <a href="#" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#" class="nav-icon cart-icon" id="cartToggle">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+                </a>
                 <a href="#" class="nav-icon"><i class="fa-solid fa-bookmark"></i></a>
                 <a href="#" class="nav-icon"><i class="fa-solid fa-user"></i></a>
             </div>
@@ -53,190 +58,333 @@
         </div>
     </nav>
 
-  <section class="hero-slider swiper">
-    <div class="swiper-wrapper">
-      <!-- imgbb.com хостинг изображений-->
-      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/Zp9NP9dG/1.png');" class="slide-link"></a></div>
-      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/B2HhsXRf/2.png');" class="slide-link"></a></div>
-      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/bjLXXNhq/3.png');" class="slide-link"></a></div>
-      <div class="swiper-slide"><a href="#"style="background-image: url('https://i.ibb.co/ks53hHG7/4.png');" class="slide-link"></a></div>
-    </div>
+    <section class="hero-slider swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href="#" style="background-image: url('assets/images/slider/1.png');"
+                    class="slide-link"></a></div>
+            <div class="swiper-slide"><a href="#" style="background-image: url('assets/images/slider/2.png');"
+                    class="slide-link"></a></div>
+            <div class="swiper-slide"><a href="#" style="background-image: url('assets/images/slider/3.png');"
+                    class="slide-link"></a></div>
+            <div class="swiper-slide"><a href="#" style="background-image: url('assets/images/slider/4.png');"
+                    class="slide-link"></a></div>
+        </div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-pagination"></div>
-  </section>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </section>
 
-  <div class="main-layout">
-      <aside class="sidebar">
-          <ul class="category-list" id="categoryList">
-              <li class="category-item active" data-category="boxes">СУШИ БОКСЫ</li>
-              <li class="category-item" data-category="rolls-phila">ФИЛАДЕЛЬНЫЕ РОЛЛЫ</li>
-              <li class="category-item" data-category="rolls-hot">ГОРЯЧИЕ РОЛЛЫ</li>
-              <li class="category-item" data-category="breakfast">ЗАВТРАКИ</li>
-              <li class="category-item" data-category="rolls-cali">РОЛЛЫ КАЛИФОРНИЯ</li>
-              <li class="category-item" data-category="no-rice">СУШИ БЕЗ РИСА</li>
-              <li class="category-item" data-category="sashimi">СУШИ ТА САШИМИ</li>
-              <li class="category-item" data-category="signature">ФИРМЕННЫЕ РОЛЛЫ</li>
-              <li class="category-item" data-category="wok">WOK BOX</li>
-              <li class="category-item" data-category="gyoza">ЯПОНСКИЕ ПЕЛЬМЕНИ ГЁДЗЕ</li>
-              <li class="category-item" data-category="maki">РОЛЛЫ МАКИ</li>
-              <li class="category-item" data-category="snacks">ЯПОНСКИЕ СНЕКИ</li>
-              <li class="category-item" data-category="lunch">БИЗНЕС-ЛАНЧИ</li>
-              <li class="category-item" data-category="poke">БОУЛЫ-ПОКЕ</li>
-              <li class="category-item" data-category="salads">САЛАТЫ</li>
-              <li class="category-item" data-category="soups">СУПЫ</li>
-              <li class="category-item" data-category="mochi">ДЕСЕРТЫ МОТИ</li>
-              <li class="category-item" data-category="drinks">НАПИТКИ</li>
-              <li class="category-item" data-category="ingredients">ИНГРЕДИЕНТЫ ДЛЯ СУШИ</li>
-              <li class="category-item" data-category="extra">ДОПОЛНЕНИЯ</li>
-              <li class="category-item" data-category="sale">РАСПРОДАЖА</li>
-          </ul>
-      </aside>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <ul class="category-list" id="categoryList">
+                <li class="category-item active" data-category="boxes">СУШИ БОКСЫ</li>
+                <li class="category-item" data-category="rolls-phila">ФИЛАДЕЛЬНЫЕ РОЛЛЫ</li>
+                <li class="category-item" data-category="rolls-hot">ГОРЯЧИЕ РОЛЛЫ</li>
+                <li class="category-item" data-category="breakfast">ЗАВТРАКИ</li>
+                <li class="category-item" data-category="rolls-cali">РОЛЛЫ КАЛИФОРНИЯ</li>
+                <li class="category-item" data-category="no-rice">СУШИ БЕЗ РИСА</li>
+                <li class="category-item" data-category="sashimi">СУШИ И САШИМИ</li>
+                <li class="category-item" data-category="signature">ФИРМЕННЫЕ РОЛЛЫ</li>
+                <li class="category-item" data-category="wok">WOK BOX</li>
+                <li class="category-item" data-category="gyoza">ЯПОНСКИЕ ПЕЛЬМЕНИ ГЁДЗЕ</li>
+                <li class="category-item" data-category="maki">РОЛЛЫ МАКИ</li>
+                <li class="category-item" data-category="snacks">ЯПОНСКИЕ СНЕКИ</li>
+                <li class="category-item" data-category="lunch">БИЗНЕС-ЛАНЧИ</li>
+                <li class="category-item" data-category="poke">БОУЛЫ-ПОКЕ</li>
+                <li class="category-item" data-category="salads">САЛАТЫ</li>
+                <li class="category-item" data-category="soups">СУПЫ</li>
+                <li class="category-item" data-category="mochi">ДЕСЕРТЫ МОТИ</li>
+                <li class="category-item" data-category="drinks">НАПИТКИ</li>
+                <li class="category-item" data-category="ingredients">ИНГРЕДИЕНТЫ ДЛЯ СУШИ</li>
+                <li class="category-item" data-category="extra">ДОПОЛНЕНИЯ</li>
+                <li class="category-item" data-category="sale">РАСПРОДАЖА</li>
+            </ul>
+        </aside>
 
         <main class="content-area">
-          <header class="content-header">
-              <h1 id="categoryTitle">СУШИ БОКСЫ</h1>
-              <div class="header-tools">
-                  <button class="tool-btn"><i class="fa-solid fa-filter"></i></button>
-                  <button class="tool-btn"><img src="https://img.icons8.com/?size=100&id=i5awsrw7V2Qr&format=png&color=ffffff" alt=""></button>
-              </div>
-          </header>
+            <header class="content-header">
+                <h1 id="categoryTitle">СУШИ БОКСЫ</h1>
+                <div class="header-tools">
+                    <button class="tool-btn"><i class="fa-solid fa-filter"></i></button>
+                    <button class="tool-btn"><img
+                            src="https://img.icons8.com/?size=100&id=i5awsrw7V2Qr&format=png&color=ffffff"
+                            alt=""></button>
+                </div>
+            </header>
 
-          <div class="content-divider"></div>
+            <div class="content-divider"></div>
 
-          <div class="products-grid" id="productsGrid">
-              <!-- Тут товарчики -->
-          </div>
-      </main>
-
-      <!-- Корзиночка -->
-      <aside class="cart-panel">
-          <div class="cart-title">
-              <img src="https://img.icons8.com/?size=100&id=59997&format=png&color=ffffff" alt="">
-              <span>КОРЗИНА</span>
-              <span style="margin-left: auto; font-size: 16px;" id="totalCountTop">0 шт</span>
-          </div>
-
-          <div class="cart-items" id="cartItems">
-              <!-- Товарчики в корзинке -->
-              <div class="cart" style="color: #444; text-align: center; ">Корзина пуста</div>
-          </div>
-
-          <div class="cart-summary">
-              <div class="summary-row">
-                  <span id="itemsInCartText">В корзине 0 товара</span>
-                  <span style="color: #ff6600; cursor: pointer;">Показать все</span>
-              </div>
-              <a href="#" style="font-size: 12px; color: #ff6600; margin-bottom: 15px;">Товары в комплекте</a>
-              <div class="total-row">
-                  <span>Вместе:</span>
-                  <span id="totalPrice">0 грн</span>
-              </div>
-              <button class="checkout-btn">Оформить заказ</button>
-          </div>
-      </aside>
-  </div>
-  <footer>
-      <div class="footer-container">
-          <div class="footer-left">
-            <div class="footer-content">
-              <img class="footer-logo" src="assets/images/Nav/logo.jpg" alt="Логотип">
-              <h2>SushiTop</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Тут товарчики -->
             </div>
-            <div class="SushiTop">2025 @СушисТоп</div>
+        </main>
 
-              <h3>Мы в социальных сетях:</h3>
-              <div class="social-icons">
-                  <a href="#" class="telegram"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48"><path fill="#29b6f6" d="M24,4C13,4,4,13,4,24s9,20,20,20s20-9,20-20S35,4,24,4z"></path><path fill="#fff" d="M34,15l-3.7,19.1c0,0-0.2,0.9-1.2,0.9c-0.6,0-0.9-0.3-0.9-0.3L20,28l-4-2l-5.1-1.4c0,0-0.9-0.3-0.9-1	c0-0.6,0.9-0.9,0.9-0.9l21.3-8.5c0,0,0.7-0.2,1.1-0.2c0.3,0,0.6,0.1,0.6,0.5C34,14.8,34,15,34,15z"></path><path fill="#b0bec5" d="M23,30.5l-3.4,3.4c0,0-0.1,0.1-0.3,0.1c-0.1,0-0.1,0-0.2,0l1-6L23,30.5z"></path><path fill="#cfd8dc" d="M29.9,18.2c-0.2-0.2-0.5-0.3-0.7-0.1L16,26c0,0,2.1,5.9,2.4,6.9c0.3,1,0.6,1,0.6,1l1-6l9.8-9.1	C30,18.7,30.1,18.4,29.9,18.2z"></path></svg></a>
-                  <a href="#" class="instagram"><img src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000" alt=""></a>
-                  <a href="#" class="facebook"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48"><path fill="#3F51B5" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path><path fill="#FFF" d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"></path></svg></a>
-              </div>
+        <div class="cart-overlay" id="cartOverlay"></div>
 
-              <div class="phone">+380 50 84 98 510</div>
+        <aside class="cart-panel" id="cartPanel">
+            <div class="cart-header-desktop">
+                <div class="cart-header-title">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>КОРЗИНА</span>
+                </div>
+                <div class="cart-header-count" id="desktopCartCount">0 шт</div>
+            </div>
+            <hr class="cart-divider-desktop">
 
-              <div class="location">Ваш город:</div>
-              <div class="location-name">Одесса</div>
+            <div class="cart-header-mobile">
+                <div class="cart-logo-wrap">
+                    <img src="assets/images/nav/logo.jpg" alt="Logo">
+                    <span>SushiTop</span>
+                </div>
+                <button class="cart-close-btn" id="cartClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
 
-              <div class="support">Служба поддержки:</div>
-              <a href="#" class="support-link">Есть вопросы?</a>
-          </div>
+            <div class="cart-sub-header">
+                <div class="cart-sub-left">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>КОРЗИНА</span>
+                    <span class="dots-separator">:</span>
+                    <span id="totalCountTop">0 шт</span>
+                </div>
+                <div class="cart-sub-right">
+                    <span>Вместе: <span id="totalPriceTop">0 грн</span></span>
+                </div>
+            </div>
 
-          <div class="footer-menu">
-              <div class="menu-column">
-                  <h4>Меню</h4>
-                  <ul>
-                      <li><a href="#">СУШИ БОКСЫ</a></li>
-                      <li><a href="#">ФИЛАДЕЛЬНЫЕ РОЛЛЫ</a></li>
-                      <li><a href="#">ГОРЯЧИЕ РОЛЛЫ</a></li>
-                      <li><a href="#">ЗАВТРАКИ</a></li>
-                      <li><a href="#">РОЛЛЫ КАЛИФОРНИЯ</a></li>
-                      <li><a href="#">СУШИ БЕЗ РИСА</a></li>
-                      <li><a href="#">СУШИ ТА САШИМИ</a></li>
-                      <li><a href="#">ФИРМЕННЫЕ РОЛЛЫ</a></li>
-                      <li><a href="#">WOK BOX</a></li>
-                      <li><a href="#">ЯПОНСКИЕ ПЕЛЬМЕНИ ГЁДЗЕ</a></li>
-                  </ul>
-              </div>
+            <div class="cart-scrollable-area">
+                <div class="cart-section-title">Основное блюдо</div>
 
-              <div class="menu-column">
-                  <ul>
-                      <li><a href="#">РОЛЛЫ МАКИ</a></li>
-                      <li><a href="#">ЯПОНСКИЕ СНЕКИ</a></li>
-                      <li><a href="#">БИЗНЕС-ЛАНЧИ</a></li>
-                      <li><a href="#">БОУЛЫ-ПОКЕ</a></li>
-                      <li><a href="#">САЛАТЫ</a></li>
-                      <li><a href="#">СУПЫ</a></li>
-                      <li><a href="#">ДЕСЕРТЫ МОТИ</a></li>
-                      <li><a href="#">НАПИТКИ</a></li>
-                      <li><a href="#">ИНГРЕДИЕНТЫ ДЛЯ СУШИ</a></li>
-                      <li><a href="#">ДОПОЛНЕНИЯ</a></li>
-                      <li><a href="#">РАСПРОДАЖА</a></li>
-                  </ul>
-              </div>
-          </div>
+                <div class="cart-items" id="cartItems">
+                </div>
 
-          <div class="footer-right">
-              <h4>Разделы сайта</h4>
-              <ul>
-                  <li><a href="#">О нас</a></li>
-                  <li><a href="#">Наши магазины</a></li>
-                  <li><a href="#">Вакансии</a></li>
-                  <li><a href="#">Доставка и оплата</a></li>
-                  <li><a href="#">Условия конфиденциональности</a></li>
-                  <li><a href="#">Акции</a></li>
-              </ul>
-          </div>
-      </div>
-  </footer>
-  
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="index.js"></script>
+                <div class="cart-included">
+                    <div class="included-header">
+                        <span>Товары в комплекте</span>
+                        <a href="#">Редактировать</a>
+                    </div>
+                    <ul class="included-list">
+                        <li>4 шт. Васаби</li>
+                        <li>4 шт. Имбирь</li>
+                        <li>4 шт. Соевый соус</li>
+                        <li>0 шт. Унаги</li>
+                        <li>0 шт. Палочки</li>
+                    </ul>
+                </div>
+            </div>
 
-  <script>
-    const swiper = new Swiper('.swiper', {
-    loop: true,
-    
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
+            <div class="cart-footer-desktop">
+                <div class="cart-status-row">
+                    <span class="items-in-cart" id="itemsInCartText">В корзине 0 товара</span>
+                    <a href="#" class="show-all-link">Показать все</a>
+                </div>
+                <div class="cart-included-link">
+                    <a href="#">Товары в комплекте</a>
+                </div>
+                <div class="cart-total-row">
+                    <span class="total-label">Вместе:</span>
+                    <span class="total-price" id="desktopTotalPrice">0 грн</span>
+                </div>
+                <button class="checkout-btn-desktop">ОФОРМИТЬ ЗАКАЗ</button>
+            </div>
 
-    keyboard: {
-        enabled: true,
-        onlyInViewport: true,
-    },
+            <div class="cart-footer-mobile">
+                <button class="checkout-btn">ОФОРМИТЬ ЗАКАЗ</button>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-content">
+                    <img class="footer-logo" src="assets/images/Nav/logo.jpg" alt="Логотип">
+                    <h2>SushiTop</h2>
+                </div>
+                <div class="SushiTop">2025 @СушисТоп</div>
 
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
+                <h3>Мы в социальных сетях:</h3>
+                <div class="social-icons">
+                    <a href="#" class="telegram"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48">
+                            <path fill="#29b6f6" d="M24,4C13,4,4,13,4,24s9,20,20,20s20-9,20-20S35,4,24,4z"></path>
+                            <path fill="#fff"
+                                d="M34,15l-3.7,19.1c0,0-0.2,0.9-1.2,0.9c-0.6,0-0.9-0.3-0.9-0.3L20,28l-4-2l-5.1-1.4c0,0-0.9-0.3-0.9-1	c0-0.6,0.9-0.9,0.9-0.9l21.3-8.5c0,0,0.7-0.2,1.1-0.2c0.3,0,0.6,0.1,0.6,0.5C34,14.8,34,15,34,15z">
+                            </path>
+                            <path fill="#b0bec5"
+                                d="M23,30.5l-3.4,3.4c0,0-0.1,0.1-0.3,0.1c-0.1,0-0.1,0-0.2,0l1-6L23,30.5z"></path>
+                            <path fill="#cfd8dc"
+                                d="M29.9,18.2c-0.2-0.2-0.5-0.3-0.7-0.1L16,26c0,0,2.1,5.9,2.4,6.9c0.3,1,0.6,1,0.6,1l1-6l9.8-9.1	C30,18.7,30.1,18.4,29.9,18.2z">
+                            </path>
+                        </svg></a>
+                    <a href="#" class="instagram"><img
+                            src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000" alt=""></a>
+                    <a href="#" class="facebook"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48">
+                            <path fill="#3F51B5"
+                                d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z">
+                            </path>
+                            <path fill="#FFF"
+                                d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z">
+                            </path>
+                        </svg></a>
+                </div>
 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    });
-  </script>
+                <div class="phone">+380 50 84 98 510</div>
+
+                <div class="location">Ваш город:</div>
+                <div class="location-name">Одесса</div>
+
+                <div class="support">Служба поддержки:</div>
+                <a href="#" class="support-link">Есть вопросы?</a>
+            </div>
+
+            <div class="footer-menu">
+                <div class="menu-column">
+                    <h4>Меню</h4>
+                    <ul>
+                        <li><a href="#">СУШИ БОКСЫ</a></li>
+                        <li><a href="#">ФИЛАДЕЛЬНЫЕ РОЛЛЫ</a></li>
+                        <li><a href="#">ГОРЯЧИЕ РОЛЛЫ</a></li>
+                        <li><a href="#">ЗАВТРАКИ</a></li>
+                        <li><a href="#">РОЛЛЫ КАЛИФОРНИЯ</a></li>
+                        <li><a href="#">СУШИ БЕЗ РИСА</a></li>
+                        <li><a href="#">СУШИ И САШИМИ</a></li>
+                        <li><a href="#">ФИРМЕННЫЕ РОЛЛЫ</a></li>
+                        <li><a href="#">WOK BOX</a></li>
+                        <li><a href="#">ЯПОНСКИЕ ПЕЛЬМЕНИ ГЁДЗЕ</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-column">
+                    <ul>
+                        <li><a href="#">РОЛЛЫ МАКИ</a></li>
+                        <li><a href="#">ЯПОНСКИЕ СНЕКИ</a></li>
+                        <li><a href="#">БИЗНЕС-ЛАНЧИ</a></li>
+                        <li><a href="#">БОУЛЫ-ПОКЕ</a></li>
+                        <li><a href="#">САЛАТЫ</a></li>
+                        <li><a href="#">СУПЫ</a></li>
+                        <li><a href="#">ДЕСЕРТЫ МОТИ</a></li>
+                        <li><a href="#">НАПИТКИ</a></li>
+                        <li><a href="#">ИНГРЕДИЕНТЫ ДЛЯ СУШИ</a></li>
+                        <li><a href="#">ДОПОЛНЕНИЯ</a></li>
+                        <li><a href="#">РАСПРОДАЖА</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <h4>Разделы сайта</h4>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Наши магазины</a></li>
+                    <li><a href="#">Вакансии</a></li>
+                    <li><a href="#">Доставка и оплата</a></li>
+                    <li><a href="#">Условия конфиденциональности</a></li>
+                    <li><a href="#">Акции</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+            },
+
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        (function () {
+            const cartPanel = document.getElementById('cartPanel');
+            const cartOverlay = document.getElementById('cartOverlay');
+            const cartToggle = document.getElementById('cartToggle');
+            const cartClose = document.getElementById('cartClose');
+            const cartBadge = document.getElementById('cartBadge');
+
+            function openCart() {
+                if (window.innerWidth <= 768) {
+                    cartPanel.classList.add('active');
+                    cartOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeCart() {
+                cartPanel.classList.remove('active');
+                cartOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (cartToggle) {
+                cartToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openCart();
+                });
+            }
+
+            if (cartClose) {
+                cartClose.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    closeCart();
+                });
+            }
+
+            if (cartOverlay) {
+                cartOverlay.addEventListener('click', closeCart);
+            }
+
+            function updateCartBadge() {
+                const itemsInCartText = document.getElementById('itemsInCartText');
+                if (itemsInCartText && cartBadge) {
+                    const match = itemsInCartText.textContent.match(/\d+/);
+                    const count = match ? parseInt(match[0]) : 0;
+
+                    if (count > 0) {
+                        cartBadge.textContent = count;
+                        cartBadge.style.display = 'flex';
+                    } else {
+                        cartBadge.style.display = 'none';
+                    }
+                }
+            }
+
+            const observer = new MutationObserver(updateCartBadge);
+            const itemsInCartTextElement = document.getElementById('itemsInCartText');
+            if (itemsInCartTextElement) {
+                observer.observe(itemsInCartTextElement, { childList: true, characterData: true, subtree: true });
+            }
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    closeCart();
+                }
+            });
+
+            updateCartBadge();
+        })();
+    </script>
+
+    <div id="notificationToast" class="notification-toast">Товар добавлен в корзину</div>
 </body>
+
 </html>
